@@ -1,0 +1,19 @@
+#include "ft_lib.h"
+
+void *ft_memccpy(void *dst, const void* src, int c, size_t n) {
+  
+  char *dst1;
+  char *src1;
+  size_t i;
+  dst1 = (char *)dst;
+  src1 = (char *)src;
+  i = 0;
+  while (i < n) {
+    dst1[i] = src1[i];
+    if (src1[i] == (char)c)
+      return (&dst[i + 1]);
+    i++;
+    }
+  return (NULL);
+
+}
