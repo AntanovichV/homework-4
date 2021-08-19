@@ -5,11 +5,14 @@ char *ft_strmapi(const char *s, char (*f)(unsigned int, char)) {
   char *result;
   unsigned int i;
   i = 0;
-  if ((s == NULL) || (f == NULL)) return NULL;
+  if ((s == NULL) || (f == NULL)) 
+    return NULL;
+  if (!(result = ft_strnew(ft_strlen(s))))
+		return NULL;
   if (s && f) {
     while (s[i] != '\0') {
       result[i] = (*f)(i, s[i]);
-	  i++;
+	    i++;
     }
   }
   result[i] = '\0';

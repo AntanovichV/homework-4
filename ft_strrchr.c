@@ -2,14 +2,19 @@
 
 char *ft_strrchr(const char *str, int s) {
 
-  if (str == NULL) return NULL;
-  char *result = NULL;
-  while (*str) {
-    if (*str == s) {
-        result = str;
-        str++;
-    } else str++;
-  }
-  return result;
+  size_t	i;
+	char	*result;
+	result = (char*)str;
+	i = ft_strlen(str);
+	if (s == '\0')
+		return (result + i);
+	while (i != 0) {
+		if (result[i] == (char)s)
+			return (result + i);
+		i--;
+	}
+	if (str[0] == (char)s)
+		return result;
+	return NULL;
 
 }

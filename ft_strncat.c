@@ -2,16 +2,16 @@
 
 char *ft_strncat(char *s1, const char *s2, size_t n) {
 
-  if ((s1 == NULL) && (s2 == NULL)) return NULL;
+  if (!s1 && !s2) return NULL;
   char *str = s1;
-  while (*s1) {
-    *s1++;
+  while (*str!= '\0') {
+    str++;
   }
   while (n) {
-    *s1++ = *s2++;
+    *str++ = *s2++;
     n--;
   }
-    *s1++ = '\0';
-  return str;
+    *str = '\0';
+  return s1;
 
 }

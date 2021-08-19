@@ -2,19 +2,17 @@
 
 char *ft_strstr(const char *s1, const char *s2) {
 
-  if ((s1 == NULL) || (s2 == NULL)) return NULL;
-  int len = ft_strlen(s2);
-  char *str = s2;
-  while(*s1 && *str) {
-    if (*s1++ == *str) {
-      str++;
+  size_t i = 0;
+  size_t j = 0;
+  if (*s2 == '\0')
+    return ((char *)s1);
+  while(s1[i] != '\0') {
+    while(s2[j] == s1[i + j]) {
+      if(s2[j + 1] == '\0') 
+        return (char *)s1 + i;
+      j++;
     }
-    if(!*str) {
-      return (s1 - len);
-    }
-    if (len == (str - s2)) {
-      str = s2;
-    }
+    i++;
   }
     return NULL;
 }
