@@ -1,6 +1,6 @@
 #include "ft_lib.h"
 
-void *ft_memcmp(const char *s1, const char *s2, size_t n) {
+int ft_memcmp(const void *s1, const void *s2, size_t n) {
 
   char	*str1 = (char *)s1;
   char	*str2 = (char *)s2;

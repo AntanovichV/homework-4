@@ -29,7 +29,7 @@ char *ft_strtrim(char const *s) {
   char *result;
   if (!s || !ft_strlen(s))
     return ((char*)s);
-  if (clear_space(s) == 1)
+  if (str_space(s) == 1)
     return (ft_strnew(1));
   start = 0;
   end = ft_strlen(s) - 1;

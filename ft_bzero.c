@@ -1,6 +1,6 @@
 #include "ft_lib.h"
 
-void *ft_bzero(void *s, size_t n) {
+void ft_bzero(void *s, size_t n) {
 
   char *str;
   size_t i;
@@ -11,6 +11,5 @@ void *ft_bzero(void *s, size_t n) {
     str[i] = 0;
     i++;
   }
-  return s;
   
 }

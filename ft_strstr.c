@@ -1,6 +1,6 @@
 #include <ft_lib.h>
 
-int ft_strstr(const char *s1, const char *s2) {
+char *ft_strstr(const char *s1, const char *s2) {
 
   if ((s1 == NULL) || (s2 == NULL)) return NULL;
   int len = ft_strlen(s2);
