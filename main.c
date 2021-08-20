@@ -203,11 +203,11 @@ int main() {
     strcpy(str3, string5);
     size_t size1 = sizeof(str1);
     size_t size3 = sizeof(str3);
-    size_t a = strlcat(str1, string4, size1);
+    char *a = strncat(str1, string4, size1);
     size_t b = ft_strlcat(str1, string4, size1);
-    size_t c = strlcat(str3, string6, size3);
+    char *c = strncat(str3, string6, size3);
     size_t d = ft_strlcat(str3, string6, size3);
-    if (a == b && c == d){
+    if (*a == b && *c == d){
       printf("strlcat is ok\n");
     } else printf("bad");
   }
