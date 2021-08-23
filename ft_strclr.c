@@ -2,8 +2,15 @@
 
 void ft_strclr(char *s) {
 
-  while (s != NULL) {
-    *s++ = '\0';
-  }
+  int i = 0;
+  int j = ft_strlen(s);
+  if (!s)
+    return ;
+  while (s) {
+    s[i] = '\0';
+    if (i == j)
+      return ;
+    i++;
+	}
   
 }

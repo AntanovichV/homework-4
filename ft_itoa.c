@@ -1,38 +1,33 @@
 #include <ft_lib.h>
 
-int count_dig (long n) {
+char *count(int n, int i, size_t j) {
 
-  int result;
-  if (n == 0) return (1);
-  result = 0;
-  while (n != 0) {
-    n /= 10;
-    result++;
-  }
-  return result;
+  char *s;
+  char *chars = ft_strdup("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		"abcdefghijklmnopqrstuvwxyz");
+  int c = n;
+  size_t k = 1;
+  while ((c = c / i))
+    k++;
+  if (!(s = (char *)malloc(sizeof(char) * (k + 1 + j)))) {
+    return NULL;
+  } else {
+      c = n;
+      s[k-- + j] = 0;
+      while ((s[k-- + j] = chars[c % i]) && c) {
+        c = c / i;
+      }
+      s[0] = (j == 1) ? '-' : s[0];
+      free(chars);
+      return (s);
+    }
 }
 
 char *ft_itoa(int n) {
 
-  if (!n) return NULL; 
-  char *result;
-  int length;
-  int pos;
-  long num;
-  num = n;
-  pos = num;
-  length = count_dig(num) + (!pos ? 1 : 0);
-  num *= pos ? 1 : -1;
-  if (!(result = malloc(sizeof(char) * (length + 1))))
-	return NULL;
-  result[length] = '\0';
-  while (length >= 0) {
-	result[length - 1] = num % 10 + 48;
-	num /= 10;
-	length--;
-  }
-  if (!pos)
-	result[0] = '-';
-  return result;
+  if (n >= 0)
+    return (count((int)n, 10, 0));
+  else
+    return (count((int)-n, 10, +1));
 
 }
